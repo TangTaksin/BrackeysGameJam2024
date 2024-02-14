@@ -264,7 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 1961817390}
   SFXSource: {fileID: 1108140794}
-  BGMusic: {fileID: 0}
+  BGMusic: {fileID: 8300000, guid: 62c1a09702210104b82a2d95dae737b0, type: 3}
   pickUpSFX: {fileID: 0}
 --- !u!1 &445957859
 GameObject:
@@ -279,6 +279,7 @@ GameObject:
   - component: {fileID: 445957861}
   - component: {fileID: 445957860}
   - component: {fileID: 445957864}
+  - component: {fileID: 445957865}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -383,12 +384,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ecd32e66368c2f4f8b498f148f49040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Level1
+  levelName: AudioSettings
   pressAnyKeyText: {fileID: 1393439279}
   gameLogo: {fileID: 507631558}
   doorButton: {fileID: 587985323}
   textColor: {r: 1, g: 1, b: 1, a: 0}
   logoColor: {r: 1, g: 1, b: 1, a: 0}
+--- !u!114 &445957865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445957859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91dabe3c278a17843aee7518eab6ecb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customCursor: {fileID: 2800000, guid: 558803101bf5c68459915fa792a95c98, type: 3}
 --- !u!1 &507631556
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,8 +490,9 @@ GameObject:
   - component: {fileID: 587985325}
   - component: {fileID: 587985324}
   - component: {fileID: 587985323}
+  - component: {fileID: 587985326}
   m_Layer: 5
-  m_Name: Button
+  m_Name: DoorButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -546,6 +561,31 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 587985323}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 420779318}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: c29dd7f76b81e334b9f81c4701621941,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 587985324}
         m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
         m_MethodName: set_sprite
@@ -563,18 +603,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: ChangeImageAndLoadScene
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 587985323}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -621,6 +649,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587985321}
   m_CullTransparentMesh: 1
+--- !u!114 &587985326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587985321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 445957865}
+          m_TargetAssemblyTypeName: CursorChanger, Assembly-CSharp
+          m_MethodName: OnMouseEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 445957865}
+          m_TargetAssemblyTypeName: CursorChanger, Assembly-CSharp
+          m_MethodName: OnMouseExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &662903012
 GameObject:
   m_ObjectHideFlags: 0
