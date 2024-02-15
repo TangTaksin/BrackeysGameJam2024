@@ -3,16 +3,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
-using System;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private string levelName;
-    [SerializeField] TextMeshProUGUI pressAnyKeyText;
-    [SerializeField] Image gameLogo;
-    [SerializeField] Button doorButton;
-    [SerializeField] Color textColor;
-    [SerializeField] Color logoColor;
+    [SerializeField] private TextMeshProUGUI pressAnyKeyText;
+    [SerializeField] private Image gameLogo;
+    [SerializeField] private Button doorButton;
+    [SerializeField] private Image fadeOverlay; // Reference to the black screen overlay
+    [SerializeField] private Color textColor;
+    [SerializeField] private Color logoColor;
 
     private float targetAlpha = 0f;
     private float fadeDuration = 2f;
@@ -26,8 +26,14 @@ public class MainMenu : MonoBehaviour
 
     private void SetInitialAlphaValues()
     {
-        pressAnyKeyText.color = new Color(textColor.r, textColor.g, textColor.b, 1f);
-        gameLogo.color = new Color(logoColor.r, logoColor.g, logoColor.b, 1f);
+        SetAlpha(pressAnyKeyText, 1f);
+        SetAlpha(gameLogo, 1f);
+        SetAlpha(fadeOverlay, 0f); // Initially set the fade overlay to be transparent
+    }
+
+    private void SetAlpha(Graphic graphic, float alpha)
+    {
+        graphic.color = new Color(graphic.color.r, graphic.color.g, graphic.color.b, alpha);
     }
 
     private IEnumerator FadeObjects()
@@ -35,41 +41,52 @@ public class MainMenu : MonoBehaviour
         isFading = true;
 
         float elapsedTime = 0f;
+
         while (elapsedTime < fadeDuration)
         {
             float newAlpha = Mathf.Lerp(pressAnyKeyText.color.a, targetAlpha, elapsedTime / fadeDuration);
-            pressAnyKeyText.color = new Color(textColor.r, textColor.g, textColor.b, newAlpha);
-            gameLogo.color = new Color(logoColor.r, logoColor.g, logoColor.b, newAlpha);
+            SetAlpha(pressAnyKeyText, newAlpha);
+            SetAlpha(gameLogo, newAlpha);
+
+            doorButton.image.color = Color.Lerp(doorButton.image.color, Color.white, elapsedTime / fadeDuration);
+
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        SetFinalAlphaValues();
         gameLogo.gameObject.SetActive(false);
         isFading = false;
-        // Add additional logic here when the fade is complete
-        if (!isFading)
-        {
-            doorButton.interactable = true;
-        }
+        doorButton.interactable = true;
     }
 
-     private IEnumerator DoorOpening()
+    private IEnumerator DoorOpening()
     {
-        yield return new WaitForSeconds(2);
+        StartCoroutine(FadeOut());
+        yield return new WaitForSeconds(3.3f);
         LoadScene();
+
     }
 
+    private IEnumerator FadeOut()
+    {
+        yield return new WaitForSeconds(1f);
+        float elapsedTime = 0f;
+
+        while (elapsedTime < fadeDuration)
+        {
+            // Fade the overlay to black
+            SetAlpha(fadeOverlay, Mathf.Lerp(0f, 1f, elapsedTime / fadeDuration));
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+
+    }
 
     public void ChangeImageAndLoadScene()
     {
         StartCoroutine(DoorOpening());
-    }
-
-    private void SetFinalAlphaValues()
-    {
-        pressAnyKeyText.color = new Color(textColor.r, textColor.g, textColor.b, targetAlpha);
-        gameLogo.color = new Color(logoColor.r, logoColor.g, logoColor.b, targetAlpha);
     }
 
     private void Update()

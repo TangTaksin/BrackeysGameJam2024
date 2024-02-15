@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance { get; private set; }
-    
+    [Header("===================Audio Source===================")]
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource sfxSource;
+
+    [Header("===================Audio Clips===================")]
+    public AudioClip BGMusic;
+    public AudioClip pickUpSFX;
+
+    public static AudioManager Instance;
     private void Awake()
     {
         if (Instance == null)
@@ -19,25 +26,28 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    [Header("===================Audio Source===================")]
-    [SerializeField] private AudioSource musicSource;
-    [SerializeField] private AudioSource SFXSource;
-
-    [Header("===================Audio Clips===================")]
-    public AudioClip BGMusic;
-    public AudioClip pickUpSFX;
-
 
     private void Start()
     {
-        PlayMusic(BGMusic);
+        if (musicSource != null)
+        {
+            PlayMusic(BGMusic);
+        }
+        else
+        {
+            Debug.LogError("musicSource is null");
+        }
 
     }
 
     public void PlayMusic(AudioClip musicClip)
     {
-        musicSource.clip = musicClip;
-        musicSource.Play();
+        if (musicClip != null)
+        {
+            musicSource.clip = musicClip;
+            musicSource.Play();
+        }
+
     }
 
     public void StopMusic()
@@ -47,7 +57,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(AudioClip SFXClip)
     {
-        SFXSource.PlayOneShot(SFXClip);
+        sfxSource.PlayOneShot(SFXClip);
     }
 
 }

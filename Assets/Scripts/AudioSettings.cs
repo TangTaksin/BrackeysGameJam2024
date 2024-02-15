@@ -8,35 +8,46 @@ public class AudioSettings : MonoBehaviour
 {
     [Header("==============Settings==============")]
     [SerializeField] private AudioMixer myMixer;
-    [SerializeField] private Slider musicSlider;
-    [SerializeField] private Slider sfxSlider;
+    [SerializeField] public Slider musicSlider;
+    [SerializeField] public Slider sfxSlider;
 
     void Awake()
     {
-        if (PlayerPrefs.HasKey("musicVolume") || PlayerPrefs.HasKey("sfxVolume"))
+        if (PlayerPrefs.HasKey("musicVolume"))
         {
-            LoadVolume();
+            LoadVolume(); 
         }
+        else
+        {
+            SetMusicVolume();
+            SetSFXVolume();
+        }        
     }
 
     public void SetMusicVolume()
     {
         float volume = musicSlider.value;
-        myMixer.SetFloat("music", volume);
+        myMixer.SetFloat("music", Mathf.Log10(volume) * 20);
+        Debug.Log("Setting music volume to: " + volume);
         PlayerPrefs.SetFloat("musicVolume", volume);
     }
 
     public void SetSFXVolume()
     {
         float volume = sfxSlider.value;
-        myMixer.SetFloat("sfx", volume);
+        myMixer.SetFloat("sfx", Mathf.Log10(volume) * 20);
+        Debug.Log("Setting SFX volume to: " + volume);
         PlayerPrefs.SetFloat("sfxVolume", volume);
     }
 
-    public void LoadVolume()
+    private void LoadVolume()
     {
-        musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 0.5f);
-        sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume", 0.5f);
+        float storedMusicVolume = PlayerPrefs.GetFloat("musicVolume");
+        float storedSFXVolume = PlayerPrefs.GetFloat("sfxVolume");
+        musicSlider.value = storedMusicVolume;
+        SetMusicVolume();
+        sfxSlider.value = storedSFXVolume;
+        SetSFXVolume();
     }
 
 }

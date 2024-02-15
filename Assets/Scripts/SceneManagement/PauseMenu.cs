@@ -21,8 +21,6 @@ public class PauseMenu : MonoBehaviour
         {
             TogglePauseMenu();
         }
-        
-        
     }
 
     public void TogglePauseMenu()
@@ -40,18 +38,17 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        Time.timeScale = 0f;
         pauseMenuUi.SetActive(true);
     }
 
     public void Resume()
     {
-        Time.timeScale = 1f;
         pauseMenuUi.SetActive(false);
     }
 
     public void RestartGame()
     {
+        pauseMenuUi.SetActive(false);
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -63,6 +60,7 @@ public class PauseMenu : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        pauseMenuUi.SetActive(false);
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     } 
