@@ -879,7 +879,12 @@ MonoBehaviour:
   musicSource: {fileID: 1961817390}
   sfxSource: {fileID: 1108140794}
   BGMusic: {fileID: 8300000, guid: 62c1a09702210104b82a2d95dae737b0, type: 3}
-  pickUpSFX: {fileID: 0}
+  pickAmmoSFX: {fileID: 0}
+  pickMagSFX: {fileID: 0}
+  playerWalkSFX: {fileID: 0}
+  playerFireSFX: {fileID: 0}
+  mon_dead_SFX: {fileID: 0}
+  mon_walk_SFX: {fileID: 0}
 --- !u!1 &445295934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,6 +1034,7 @@ GameObject:
   - component: {fileID: 445957860}
   - component: {fileID: 445957864}
   - component: {fileID: 445957865}
+  - component: {fileID: 445957866}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1134,13 +1140,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ecd32e66368c2f4f8b498f148f49040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: AudioSettings
+  levelName: Level1
   pressAnyKeyText: {fileID: 1393439279}
   gameLogo: {fileID: 507631558}
   doorButton: {fileID: 587985323}
   fadeOverlay: {fileID: 743943248}
   textColor: {r: 1, g: 1, b: 1, a: 0}
   logoColor: {r: 1, g: 1, b: 1, a: 0}
+  fadeDuration: 4
 --- !u!114 &445957865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1154,6 +1161,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customCursor: {fileID: 2800000, guid: 558803101bf5c68459915fa792a95c98, type: 3}
+--- !u!114 &445957866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445957859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaff2d0a580456e4bb843861a9f0b3ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeImage: {fileID: 743943248}
+  fadeDuration: 4
 --- !u!1 &507631556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,15 +1967,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 0}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Color logoColor;
 
     private float targetAlpha = 0f;
-    private float fadeDuration = 2f;
+    [SerializeField] private float fadeDuration = 2f;
     private bool isFading = false;
 
     private void Start()
@@ -62,14 +62,14 @@ public class MainMenu : MonoBehaviour
     private IEnumerator DoorOpening()
     {
         StartCoroutine(FadeOut());
-        yield return new WaitForSeconds(3.3f);
+        yield return new WaitForSeconds(5.3f);
         LoadScene();
 
     }
 
     private IEnumerator FadeOut()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         float elapsedTime = 0f;
 
         while (elapsedTime < fadeDuration)

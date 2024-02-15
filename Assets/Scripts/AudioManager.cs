@@ -8,9 +8,21 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource sfxSource;
 
-    [Header("===================Audio Clips===================")]
+    [Header("===================Music Clips===================")]
     public AudioClip BGMusic;
-    public AudioClip pickUpSFX;
+    
+
+    [Header("===================Player SFX Clips===================")]
+    public AudioClip pickAmmoSFX;
+    public AudioClip pickMagSFX;
+    public AudioClip playerWalkSFX;
+    public AudioClip playerFireSFX;
+
+    [Header("===================Monster SFX Clips===================")]
+    public AudioClip mon_dead_SFX;
+    public AudioClip mon_walk_SFX;
+
+
 
     public static AudioManager Instance;
     private void Awake()
