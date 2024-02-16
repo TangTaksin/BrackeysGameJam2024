@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/New Animation.anim.meta
+guid: f4ccccc847a402846b62b1cfac350670
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+========
 guid: 92a3b8f310a466843a3c7fa1b4de6f06
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
+>>>>>>>> origin/Tang-Branch:Assets/Tilemap/Tiles/spritesheetcol_1.asset.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 

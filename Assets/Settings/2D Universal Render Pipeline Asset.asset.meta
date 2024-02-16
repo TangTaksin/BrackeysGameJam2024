@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Settings/New Universal Render Pipeline Asset.asset.meta
+guid: 94fa28c59e04e354d92fdb0e014082df
+========
 guid: 17929ddda44f885459006b6d8e5aceff
+>>>>>>>> origin/Tang-Branch:Assets/Settings/2D Universal Render Pipeline Asset.asset.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000

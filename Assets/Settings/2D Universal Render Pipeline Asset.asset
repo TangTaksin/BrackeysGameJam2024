@@ -10,14 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf2edee5c58d82540a51f03df9d42094, type: 3}
+<<<<<<<< HEAD:Assets/Settings/New Universal Render Pipeline Asset.asset
+  m_Name: New Universal Render Pipeline Asset
+========
   m_Name: 2D Universal Render Pipeline Asset
+>>>>>>>> origin/Tang-Branch:Assets/Settings/2D Universal Render Pipeline Asset.asset
   m_EditorClassIdentifier: 
   k_AssetVersion: 11
   k_AssetPreviousVersion: 11
   m_RendererType: 1
   m_RendererData: {fileID: 0}
   m_RendererDataList:
+<<<<<<<< HEAD:Assets/Settings/New Universal Render Pipeline Asset.asset
+  - {fileID: 11400000, guid: 9469e5371b7e7d840a24a391b0a953f6, type: 2}
+========
   - {fileID: 11400000, guid: 13b836ceada5e24419facb5ef1d0f9f1, type: 2}
+>>>>>>>> origin/Tang-Branch:Assets/Settings/2D Universal Render Pipeline Asset.asset
   m_DefaultRendererIndex: 0
   m_RequireDepthTexture: 0
   m_RequireOpaqueTexture: 0
@@ -64,7 +72,7 @@ MonoBehaviour:
   m_SupportsDynamicBatching: 0
   m_MixedLightingSupported: 1
   m_SupportsLightCookies: 1
-  m_SupportsLightLayers: 0
+  m_SupportsLightLayers: 1
   m_DebugLevel: 0
   m_StoreActionsOptimization: 0
   m_EnableRenderGraph: 0

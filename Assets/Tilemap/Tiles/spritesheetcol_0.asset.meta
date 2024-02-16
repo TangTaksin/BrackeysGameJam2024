@@ -1,8 +1,14 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/QuickOutline/Resources/Materials/OutlineFill.mat.meta
+guid: af9ca18586ea820478f0648be40ac609
+timeCreated: 1520576285
+licenseType: Store
+========
 guid: 0cbd16fc4305c8f429c74a173417bae1
+>>>>>>>> origin/Tang-Branch:Assets/Tilemap/Tiles/spritesheetcol_0.asset.meta
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 11400000
+  mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
