@@ -1792,7 +1792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a13b3c450a55c1941a500e6e1fd88804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myMixer: {fileID: 24100000, guid: f54293001ef1bac478c1bac101f2df21, type: 2}
+  myMixer: {fileID: 24100000, guid: 1f379e1c67ee60343a0538b415382afa, type: 2}
   musicSlider: {fileID: 2179159078858689716}
   sfxSlider: {fileID: 4412144798268379748}
 --- !u!1 &6031070701086894820

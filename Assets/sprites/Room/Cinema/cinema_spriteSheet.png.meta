@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bdc3aed1c7b89dd49965a66875e3a5ca
+guid: 6f86a27e7e10cc04b93bd437f583414a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spritesheetcol_0
+      name: cinema_spriteSheet_0
       rect:
         serializedVersion: 2
-        x: 26
-        y: 431
-        width: 64
-        height: 37
+        x: 32
+        y: 460
+        width: 17
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85afa24980f6f864baec19b7ae68840c
-      internalID: 313630517
+      spriteID: 2a53e17f245a18140857c74f19b6e758
+      internalID: -1728637399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetcol_1
+      name: cinema_spriteSheet_1
       rect:
         serializedVersion: 2
-        x: 98
-        y: 444
-        width: 40
-        height: 25
+        x: 80
+        y: 460
+        width: 14
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 242dc09af88f58b4ba773ce4f829e0e4
-      internalID: -623397315
+      spriteID: 30eb0f952546bbe41871ac2c95d1f3ac
+      internalID: 775112425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetcol_2
+      name: Ground)cinema_spriteSheet_2
       rect:
         serializedVersion: 2
-        x: 24
-        y: 374
-        width: 38
-        height: 29
+        x: 208
+        y: 378
+        width: 202
+        height: 106
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,18 +179,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7c05f5357b78294cb20a8ec58da3b62
-      internalID: -1414217393
+      spriteID: 25b2eb9dc56406a4389d2f2f3a48c2ba
+      internalID: 2063448186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetcol_3
+      name: cinema_spriteSheet_3
       rect:
         serializedVersion: 2
-        x: 74
-        y: 375
+        x: 32
+        y: 436
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcb32eafdaa325e47af65fd3c1893e3b
+      internalID: 514143525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinema_spriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 398
         width: 22
         height: 21
       alignment: 0
@@ -200,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80f9623109bd9a74eaf74259d1e1bd15
-      internalID: -1992688477
+      spriteID: 423074536fa8277468c1b4ac4f1148d9
+      internalID: -2065735432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetcol_4
+      name: cinema_spriteSheet_5
       rect:
         serializedVersion: 2
-        x: 113
-        y: 374
-        width: 38
-        height: 35
+        x: 82
+        y: 402
+        width: 12
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,39 +242,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8703d9defc76cce498d5c2fdf5d34c49
-      internalID: -435294171
+      spriteID: 587d95a046941ee479f0bd724c66e276
+      internalID: -1278456390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetcol_5
+      name: cinema_spriteSheet_6
       rect:
         serializedVersion: 2
-        x: 163
-        y: 380
-        width: 16
-        height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1601f52cbfa3324695d5170e4230814
-      internalID: -1816478701
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheetcol_6
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 328
+        x: 30
+        y: 329
         width: 57
         height: 28
       alignment: 0
@@ -263,18 +263,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0041764bf2c66474082efd6ca7a4c02c
-      internalID: -1646843395
+      spriteID: bf5e9bebefdb12c45807f60d83e57190
+      internalID: -1975699952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheetcol_8
+      name: cinema_spriteSheet_7
       rect:
         serializedVersion: 2
-        x: 40
-        y: 252
+        x: 222
+        y: 246
+        width: 110
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1047d63cf8b83bf4c83708b6a821ad14
+      internalID: 1991170068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cinema_spriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 233
         width: 94
         height: 51
       alignment: 0
@@ -284,8 +305,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a4a942b368a6134586666f92c8f0747
-      internalID: -69301025
+      spriteID: ef142b351099c3940acbf71fd629b968
+      internalID: 1898173234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall_cinema_spriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 52
+        width: 129
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ac025a00a2652d4994dd1992d430b64
+      internalID: -158034831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall_cinema_spriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 15
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7018ffbd24bf1cd41bcf66c03239e0ee
+      internalID: 1908316231
       vertices: []
       indices: 
       edges: []
@@ -293,25 +356,25 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7b30851cd9b571d478ab61b58f5ae14c
+    spriteID: fbc2f483558a3e444b897ab7417b3035
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 7d083209746e2084c8b84afae470b023, type: 3}
-      name: _NormalMap
+    secondaryTextures: []
     nameFileIdTable:
-      spritesheetcol_0: 313630517
-      spritesheetcol_1: -623397315
-      spritesheetcol_2: -1414217393
-      spritesheetcol_3: -1992688477
-      spritesheetcol_4: -435294171
-      spritesheetcol_5: -1816478701
-      spritesheetcol_6: -1646843395
-      spritesheetcol_7: -809411515
-      spritesheetcol_8: -69301025
+      Ground)cinema_spriteSheet_2: 2063448186
+      cinema_spriteSheet_0: -1728637399
+      cinema_spriteSheet_1: 775112425
+      cinema_spriteSheet_3: 514143525
+      cinema_spriteSheet_4: -2065735432
+      cinema_spriteSheet_5: -1278456390
+      cinema_spriteSheet_6: -1975699952
+      cinema_spriteSheet_7: 1991170068
+      cinema_spriteSheet_8: 1898173234
+      wall_cinema_spriteSheet_10: 1908316231
+      wall_cinema_spriteSheet_9: -158034831
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

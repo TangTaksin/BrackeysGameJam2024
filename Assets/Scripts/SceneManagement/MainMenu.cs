@@ -16,6 +16,7 @@ public class MainMenu : MonoBehaviour
 
     private float targetAlpha = 0f;
     [SerializeField] private float fadeDuration = 2f;
+    [SerializeField] private float logoFadeDuration = 2f;
     private bool isFading = false;
 
     private void Start()
@@ -42,7 +43,7 @@ public class MainMenu : MonoBehaviour
 
         float elapsedTime = 0f;
 
-        while (elapsedTime < fadeDuration)
+        while (elapsedTime < logoFadeDuration)
         {
             float newAlpha = Mathf.Lerp(pressAnyKeyText.color.a, targetAlpha, elapsedTime / fadeDuration);
             SetAlpha(pressAnyKeyText, newAlpha);
