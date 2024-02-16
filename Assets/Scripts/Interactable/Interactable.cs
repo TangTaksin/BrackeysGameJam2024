@@ -12,7 +12,7 @@ public class Interactable : MonoBehaviour
     [Header("Choices (Optional)")]
     [SerializeField] bool hasChoice;
     [SerializeField] bool pauseWhileChoice;
-    [SerializeField][Multiline] string choiceInfo;
+    [SerializeField][Multiline] protected string choiceInfo;
 
     public virtual void Interact()
     {

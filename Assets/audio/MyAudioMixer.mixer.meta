@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Cube.controller.meta
+guid: 1f379e1c67ee60343a0538b415382afa
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+========
+guid: f54293001ef1bac478c1bac101f2df21
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 24100000
+>>>>>>>> origin/Tang-Branch:Assets/Audio/MyAudioMixer.mixer.meta
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

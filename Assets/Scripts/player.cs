@@ -86,6 +86,11 @@ public class player : creature
 
     }
 
+    public void SetAnimationState(string stateName)
+    {
+        playerAnimator.Play(stateName);
+    }
+
     void ApplyVelocity()
     {
         playerRb2D.velocity = inputVector * moveSpeed;
@@ -159,6 +164,7 @@ public class player : creature
         }
     }
 
+
     void OnPause()
     {
         isPause = true;
@@ -168,6 +174,7 @@ public class player : creature
     {
         isPause = false;
     }
+
 
     void Debug()
     {
