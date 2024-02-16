@@ -25,6 +25,12 @@ public class FadeScreen : MonoBehaviour
 
     }
 
+    public void Menu()
+    {
+        StartCoroutine(FadeInAndMainMenu());
+        
+    }
+
     IEnumerator FadeInAndRestart()
     {
         fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 0f);
@@ -38,6 +44,21 @@ public class FadeScreen : MonoBehaviour
             yield return null;
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    IEnumerator FadeInAndMainMenu()
+    {
+        fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 0f);
+
+        float t = 0f;
+        while (t < fadeDuration)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(0f, 1f, t / fadeDuration);
+            fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, alpha);
+            yield return null;
+        }
+        SceneManager.LoadScene("MainMenu");
     }
 
     IEnumerator FadeIn()

@@ -50,3 +50,6 @@ TagManager:
   - name: Floor
     uniqueID: 2078338193
     locked: 0
+  - name: Prop
+    uniqueID: 3314991725
+    locked: 0

@@ -13,10 +13,17 @@ public class AudioManager : MonoBehaviour
     
 
     [Header("===================Player SFX Clips===================")]
-    public AudioClip pickAmmoSFX;
+    public AudioClip player_pick_ammo_SFX;
     public AudioClip pickMagSFX;
     public AudioClip playerWalkSFX;
     public AudioClip playerFireSFX;
+
+    [Header("===================Player SFX Clips===================")]
+    public AudioClip door_open_wood_sfx;
+    public AudioClip door_close_wood_sfx;
+    public AudioClip door_open_metal_sfx;
+    public AudioClip door_close_metal_sfx;
+    public AudioClip door_stuck_sfx;
 
     [Header("===================Monster SFX Clips===================")]
     public AudioClip mon_dead_SFX;
