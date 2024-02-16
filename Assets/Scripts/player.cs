@@ -7,9 +7,11 @@ using TMPro;
 public class player : creature
 {
     Rigidbody2D playerRb2D;
+    Animator playerAnimator;
     Camera cam;
 
     Vector2 inputVector;
+    Vector2 lateInput;
 
     bool isPause;
 
@@ -39,6 +41,7 @@ public class player : creature
         GameManager.OnResumeEvent += OnResume;
 
         playerRb2D = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
         cam = Camera.main;
 
         promptImg = promptUI.GetComponentInChildren<Image>();
@@ -59,6 +62,8 @@ public class player : creature
 
             Debug();
         }
+
+        UpdateAnimator();
     }
 
     void GetInput()
@@ -68,6 +73,17 @@ public class player : creature
 
         inputVector = new Vector2(x * xStr, y * yStr);
         inputVector.Normalize();
+    }
+
+    void UpdateAnimator()
+    {
+        //update last input
+        lateInput = Vector2.Lerp(lateInput, inputVector, (int)inputVector.SqrMagnitude());
+
+        playerAnimator.SetFloat("x", lateInput.x);
+        playerAnimator.SetFloat("y", lateInput.y);
+        playerAnimator.SetFloat("inputMagnitude", (int)inputVector.SqrMagnitude());
+
     }
 
     void ApplyVelocity()

@@ -6,9 +6,19 @@ public class door : Interactable
 {
     bool isPeeked;
 
+    SpriteRenderer doorRenderer;
+
+    AudioSource audioSource;
+
     public delegate void doorEvent();
     public static doorEvent OnPeeked;
     public static doorEvent OnMoveaway;
+
+    private void Start()
+    {
+        doorRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public void SetIsPeeked(bool val)
     {
@@ -20,6 +30,8 @@ public class door : Interactable
         // if it hasn't been peeked yet.
         if (!isPeeked)
         {
+            audioSource.Play();
+
             // start door peeking animation
             OnPeeked?.Invoke();
             isPeeked = true;
@@ -27,6 +39,18 @@ public class door : Interactable
 
         //show enter or not prompt
         base.Interact();
+    }
+
+    public void SetVisibility(bool value)
+    {
+        if (value)
+        {
+            doorRenderer.color = Color.white;
+        }
+        else
+        {
+            doorRenderer.color = Color.clear;
+        }
     }
 
     // Enter next room if yes

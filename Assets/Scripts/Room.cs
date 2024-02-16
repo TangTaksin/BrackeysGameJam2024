@@ -5,13 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public class Room : MonoBehaviour
 {
-    [SerializeField] SpriteRenderer rightWallSR, leftWallSR;
-    [Header("Doors")]
-    [SerializeField] DoorGroup uprightDoor;
-    [SerializeField] DoorGroup upleftDoor;
-    [SerializeField] DoorGroup downrightDoor;
-    [SerializeField] DoorGroup downleftDoor;
-
+    [SerializeField] SpriteRenderer rightWallSR, leftWallSR, roomSR;
     [Header("Shadow Casters")]
     [SerializeField] ShadowCaster2D roomTopCorner;
     [SerializeField] ShadowCaster2D roomLeftCorner, roomRightCorner, roomBottomCorner;
@@ -24,13 +18,7 @@ public class Room : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        doors = new DoorGroup[4] { uprightDoor , upleftDoor , downrightDoor , downleftDoor };
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        CheckIfPeeked();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,25 +31,19 @@ public class Room : MonoBehaviour
         collision.gameObject.CompareTag("Player");
     }
 
-    void CheckIfPeeked()
+    void SetRoomVisibility(bool value)
     {
-        beingPeek = false;
-
-        foreach (DoorGroup door in doors)
+        if (value)
         {
-            if (door)
-            {
-                beingPeek = door.GetIsBeingPeek();
-                if (beingPeek)
-                {
-                    break;
-                }
-            }
+            roomSR.color = Color.white;
+            rightWallSR.color = Color.white;
+            leftWallSR.color = Color.white;
         }
-    }
-
-    void WallRule()
-    {
-
+        else
+        {
+            roomSR.color = Color.clear;
+            rightWallSR.color = Color.clear;
+            leftWallSR.color = Color.clear;
+        }
     }
 }

@@ -24,6 +24,14 @@ public class DoorGroup : MonoBehaviour
         return isBeingPeek;
     }
 
+    public void SetVisibility(bool value)
+    {
+        foreach(var door in doors)
+        {
+            door.SetVisibility(value);
+        }
+    }
+
     void OnPeek()
     {
         if (!canPeekManyDoor)
