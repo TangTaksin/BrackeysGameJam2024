@@ -13,7 +13,10 @@ public class player : creature
     Vector2 inputVector;
     Vector2 lateInput;
 
+    Vector2 dirToMouse;
+
     bool isPause;
+    bool animLocked;
 
     [Header("direction strenght")]
     [SerializeField][Range(0,1)] float xStr = 1f;
@@ -29,6 +32,15 @@ public class player : creature
     [SerializeField] RectTransform promptUI;
     Image promptImg;
     TextMeshProUGUI promptTxt;
+
+    [Header("Gunplay")]
+    [SerializeField] Transform gunOrigin;
+    [SerializeField] float damage;
+    [SerializeField] float coolDown = 1f;
+    [SerializeField] LayerMask gunMask;
+
+    bool isAimming;
+    float cdTimer;
 
     [Header("debug text")]
     [SerializeField] TextMeshProUGUI inputStrTxt;
@@ -60,6 +72,8 @@ public class player : creature
             InteractableCheck();
             Interact();
 
+            Gunplay();
+
             Debug();
         }
 
@@ -68,11 +82,20 @@ public class player : creature
 
     void GetInput()
     {
+        // KeyBoard
         var x = Input.GetAxisRaw("Horizontal");
         var y = Input.GetAxisRaw("Vertical");
 
         inputVector = new Vector2(x * xStr, y * yStr);
         inputVector.Normalize();
+
+        // Mouse Position
+        var mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        if (!animLocked)
+        {
+            dirToMouse = mousePos - gunOrigin.position;
+            dirToMouse.Normalize();
+        }
     }
 
     void UpdateAnimator()
@@ -83,7 +106,16 @@ public class player : creature
         playerAnimator.SetFloat("x", lateInput.x);
         playerAnimator.SetFloat("y", lateInput.y);
         playerAnimator.SetFloat("inputMagnitude", (int)inputVector.SqrMagnitude());
+        
+        animLocked = playerAnimator.GetBool("AnimLock");
 
+        if (!animLocked)
+        {
+            playerAnimator.SetFloat("aimX", dirToMouse.x);
+            playerAnimator.SetFloat("aimY", dirToMouse.y);
+        }
+
+        
     }
 
     public void SetAnimationState(string stateName)
@@ -93,7 +125,7 @@ public class player : creature
 
     void ApplyVelocity()
     {
-        playerRb2D.velocity = inputVector * moveSpeed;
+        playerRb2D.velocity = (inputVector * moveSpeed * (!animLocked).GetHashCode()) / (1 + (isAimming).GetHashCode());
     }
 
     void InteractableCheck()
@@ -165,14 +197,52 @@ public class player : creature
     }
 
 
+    void Gunplay()
+    {
+        if (Input.GetButtonDown("Aim"))
+        {
+            isAimming = true;
+            playerAnimator.SetBool("aimming", isAimming);
+            playerAnimator.Play("gun Pull Blend");
+        }
+
+        if (Input.GetButtonUp("Aim"))
+        {
+            isAimming = false;
+            playerAnimator.SetBool("aimming", isAimming);
+        }
+
+        if (isAimming)
+        {
+            if (Input.GetButtonUp("Shoot") && cdTimer <= 0)
+            {
+                cdTimer = coolDown;
+                playerAnimator.SetTrigger("Shot");
+
+                var hit = Physics2D.Raycast(gunOrigin.position, (Vector2)gunOrigin.position + dirToMouse, Mathf.Infinity, gunMask);
+                //hit.collider.gameObject.TryGetComponent<creature>(out var enemy);
+            }
+        }
+
+        //gun cooldown
+        cdTimer -= Time.deltaTime;
+    }
+
+
+    Vector2 storedVelo;
+
     void OnPause()
     {
         isPause = true;
+
+        storedVelo = playerRb2D.velocity; // store
+        playerRb2D.velocity = Vector2.zero;
     }
 
     void OnResume()
     {
         isPause = false;
+        playerRb2D.velocity = storedVelo;
     }
 
 
@@ -186,5 +256,7 @@ public class player : creature
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, interactCheckRadius);
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine((Vector2)gunOrigin.position, (Vector2)gunOrigin.position + dirToMouse * 5);
     }
 }
