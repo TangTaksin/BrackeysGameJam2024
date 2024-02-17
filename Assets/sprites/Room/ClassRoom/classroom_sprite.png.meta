@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6f86a27e7e10cc04b93bd437f583414a
+guid: 2b881db8eeb5cd649aede5ba07e3ec02
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cinema_spriteSheet_0
+      name: classroom_sprite_0
       rect:
         serializedVersion: 2
         x: 32
-        y: 460
-        width: 17
-        height: 8
+        y: 436
+        width: 16
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a53e17f245a18140857c74f19b6e758
-      internalID: -1728637399
+      spriteID: ee4b7fd0cef8b0b49b7ee2ffad6cbbc5
+      internalID: 400252373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cinema_spriteSheet_1
+      name: classroom_sprite_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 460
-        width: 14
-        height: 8
+        x: 96
+        y: 436
+        width: 20
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,18 +158,228 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30eb0f952546bbe41871ac2c95d1f3ac
-      internalID: 775112425
+      spriteID: 12380777f27698044bc0ec466aa6c118
+      internalID: 907163504
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ground)cinema_spriteSheet_2
+      name: classroom_sprite_2
       rect:
         serializedVersion: 2
-        x: 208
-        y: 378
+        x: 160
+        y: 436
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 151922cf64a4bed488cbdb4956b28d38
+      internalID: 827956686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classroom_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 436
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dff9b79e6e6ac9429203053e2d8fae7
+      internalID: -1853663030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classroom_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 436
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49d3fc571da1bda4b8d35a9214279faf
+      internalID: -1164943405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classroom_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 388
+        width: 23
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf4444e5efb1c94bb85ef58b582b119
+      internalID: 949808256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classroom_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 388
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4169c3ca88978144dbb2c994f4138357
+      internalID: -1972529438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classroom_sprite_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 388
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d337d24be454a647a9a07e12ea4aa4c
+      internalID: -261525657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classroom_sprite_8
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 388
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca2da8812ca17ab48b17fb63a2775105
+      internalID: 1678399340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classroom_sprite_9
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 388
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c5da4b6b965ed541ad54040fbe0cf11
+      internalID: 1932460468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classroom_sprite_10
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 388
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65a0f38a7f096df4191ae4500a93f23d
+      internalID: -2092620524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classroom_sprite_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 291
+        width: 46
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d8e2f46e32fec84da8a6338301eca89
+      internalID: 580313104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground_classroom_sprite_12
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 161
         width: 202
         height: 106
       alignment: 0
@@ -179,144 +389,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25b2eb9dc56406a4389d2f2f3a48c2ba
-      internalID: 2063448186
+      spriteID: a8e083ae2e7495b47acb86e82d9a4e18
+      internalID: -555189431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cinema_spriteSheet_3
+      name: wall_classroom_sprite_13
       rect:
         serializedVersion: 2
-        x: 32
-        y: 436
-        width: 17
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bcb32eafdaa325e47af65fd3c1893e3b
-      internalID: 514143525
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cinema_spriteSheet_4
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 398
-        width: 22
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 423074536fa8277468c1b4ac4f1148d9
-      internalID: -2065735432
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cinema_spriteSheet_5
-      rect:
-        serializedVersion: 2
-        x: 82
-        y: 402
-        width: 12
-        height: 19
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 587d95a046941ee479f0bd724c66e276
-      internalID: -1278456390
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cinema_spriteSheet_6
-      rect:
-        serializedVersion: 2
-        x: 30
-        y: 329
-        width: 57
-        height: 28
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf5e9bebefdb12c45807f60d83e57190
-      internalID: -1975699952
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cinema_spriteSheet_7
-      rect:
-        serializedVersion: 2
-        x: 222
-        y: 246
-        width: 110
-        height: 103
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1047d63cf8b83bf4c83708b6a821ad14
-      internalID: 1991170068
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cinema_spriteSheet_8
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 233
-        width: 94
-        height: 51
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef142b351099c3940acbf71fd629b968
-      internalID: 1898173234
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wall_cinema_spriteSheet_9
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 52
+        x: 272
+        y: 164
         width: 129
         height: 116
       alignment: 0
@@ -326,18 +410,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ac025a00a2652d4994dd1992d430b64
-      internalID: -158034831
+      spriteID: eeb446d0fcf1e6d4286ea10cad934a3c
+      internalID: -2048282111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wall_cinema_spriteSheet_10
+      name: wall_classroom_sprite_14
       rect:
         serializedVersion: 2
-        x: 256
-        y: 15
+        x: 272
+        y: 44
         width: 74
         height: 88
       alignment: 0
@@ -347,8 +431,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7018ffbd24bf1cd41bcf66c03239e0ee
-      internalID: 1908316231
+      spriteID: 3e2b0ec53c0cc914a93565be2b7f94b3
+      internalID: -829377756
       vertices: []
       indices: 
       edges: []
@@ -356,27 +440,31 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: fbc2f483558a3e444b897ab7417b3035
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures:
-    - texture: {fileID: 2800000, guid: b599a6bf2e8bda6479489f4f2176aff6, type: 3}
+    - texture: {fileID: 2800000, guid: 8acceaea1469b5942a55ada40f930a74, type: 3}
       name: _NormalMap
     nameFileIdTable:
-      Ground)cinema_spriteSheet_2: 2063448186
-      cinema_spriteSheet_0: -1728637399
-      cinema_spriteSheet_1: 775112425
-      cinema_spriteSheet_3: 514143525
-      cinema_spriteSheet_4: -2065735432
-      cinema_spriteSheet_5: -1278456390
-      cinema_spriteSheet_6: -1975699952
-      cinema_spriteSheet_7: 1991170068
-      cinema_spriteSheet_8: 1898173234
-      wall_cinema_spriteSheet_10: 1908316231
-      wall_cinema_spriteSheet_9: -158034831
+      classroom_sprite_0: 400252373
+      classroom_sprite_1: 907163504
+      classroom_sprite_10: -2092620524
+      classroom_sprite_11: 580313104
+      classroom_sprite_2: 827956686
+      classroom_sprite_3: -1853663030
+      classroom_sprite_4: -1164943405
+      classroom_sprite_5: 949808256
+      classroom_sprite_6: -1972529438
+      classroom_sprite_7: -261525657
+      classroom_sprite_8: 1678399340
+      classroom_sprite_9: 1932460468
+      ground_classroom_sprite_12: -555189431
+      wall_classroom_sprite_13: -2048282111
+      wall_classroom_sprite_14: -829377756
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

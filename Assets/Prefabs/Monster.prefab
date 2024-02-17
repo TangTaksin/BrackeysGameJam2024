@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7677876206806788971}
   - component: {fileID: 9126440383867678612}
   - component: {fileID: 2970325159876498422}
+  - component: {fileID: 3389695548423813666}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -120,9 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01bc6ff936599b4458b3320d7d3a35d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  detectionRange: 1.75
-  attackRange: 0.61
+  speed: 4.2
+  attackRange: 0.89
+  movementDamping: 5
   player: {fileID: 0}
 --- !u!50 &2970325159876498422
 Rigidbody2D:
@@ -151,3 +152,38 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &3389695548423813666
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3361222762405048482}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.625

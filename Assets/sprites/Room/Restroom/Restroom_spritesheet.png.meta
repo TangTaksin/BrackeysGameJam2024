@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e8f904b1e90d82d489e34c3f868f3331
+guid: cebfaf368f1d91b4ab7130c7086ca7a8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,169 +123,274 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walk_east-0001-Sheet_0
+      name: Restroom_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 360
+        width: 38
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1ef1ef6df1636c49949a024de50eb63
+      internalID: -742394785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Restroom_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 362
+        width: 38
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 082ada4aa2fd6fb4db23c6b01fc017b1
+      internalID: 278000866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Restroom_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 368
+        width: 16
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3f9f389f872ea44e97f04c51a4d1483
+      internalID: -2116253833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Restroom_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 362
+        width: 38
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19e72a591a14540429e938e48ef11ec6
+      internalID: -1465973074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Restroom_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 362
+        width: 38
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26d25c5b3b07b124ebb5b2f1b2d49cbf
+      internalID: -143235932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Restroom_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 362
+        width: 38
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44d9829b0a1903040844dd9a3d91b55c
+      internalID: 1190924711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Restroom_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 314
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43cb149743f82b34eb7a7a5913b81ce0
+      internalID: 2019091751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Restroom_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 288
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f524e1241d569ae4cb70a2806a2c4f7f
+      internalID: 1073003080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall_Restroom_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 129
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a175c6b47f41594e8036548805528f2
+      internalID: -1910589366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground_Restroom_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 140
+        width: 202
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9168bede39f4ed447b3cbb6155868720
+      internalID: 179104768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall_Restroom_spritesheet_10
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 320
-        height: 320
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0625}
+        width: 129
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: def3235e3dc3441428a0fd285b1a3373
-      internalID: -390375835
+      spriteID: a93299e935b237a45bbdd724e615589c
+      internalID: 2007924534
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk_east-0001-Sheet_1
+      name: wall_Restroom_spritesheet_11
       rect:
         serializedVersion: 2
-        x: 320
+        x: 176
         y: 0
-        width: 320
-        height: 320
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0625}
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c89c5a64d43f91d4586a53a439e6c627
-      internalID: -1575797845
+      spriteID: defad0654f9c6eb489f18d996f7d0154
+      internalID: -2019999685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk_east-0001-Sheet_2
+      name: Restroom_spritesheet_12
       rect:
         serializedVersion: 2
-        x: 640
+        x: 326
         y: 0
-        width: 320
-        height: 320
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0625}
+        width: 74
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbc4921d138124e49963f579d0993d2f
-      internalID: 1799834030
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walk_east-0001-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 0
-        width: 320
-        height: 320
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0625}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3cf934bd38bfd87418c50e70c9b7c26f
-      internalID: 1934432269
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walk_east-0001-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 320
-        height: 320
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0625}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a92f5889303d9a04d9765d62ed036890
-      internalID: 1771551326
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walk_east-0001-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 0
-        width: 320
-        height: 320
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0625}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 12e1b7134efa8dd4c89f5941f219cc3f
-      internalID: -745241270
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walk_east-0001-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 1920
-        y: 0
-        width: 320
-        height: 320
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0625}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5afa71b45b5af2b4ea4cb54bad12b8b6
-      internalID: -1975464392
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: walk_east-0001-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 2240
-        y: 0
-        width: 320
-        height: 320
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0625}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66be9804c8aee0648a41560f8cc46256
-      internalID: -2103062366
+      spriteID: af998b78ca1df714096554a024188b39
+      internalID: -1580301732
       vertices: []
       indices: 
       edges: []
@@ -293,22 +398,29 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: f0e3e246b3b34b64e9971c45e70ef6d4
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: 518948843f2b4e046b88d31ae811e129, type: 3}
+      name: _NormalMap
     nameFileIdTable:
-      walk_east-0001-Sheet_0: -390375835
-      walk_east-0001-Sheet_1: -1575797845
-      walk_east-0001-Sheet_2: 1799834030
-      walk_east-0001-Sheet_3: 1934432269
-      walk_east-0001-Sheet_4: 1771551326
-      walk_east-0001-Sheet_5: -745241270
-      walk_east-0001-Sheet_6: -1975464392
-      walk_east-0001-Sheet_7: -2103062366
+      Restroom_spritesheet_0: -742394785
+      Restroom_spritesheet_1: 278000866
+      Restroom_spritesheet_12: -1580301732
+      Restroom_spritesheet_2: -2116253833
+      Restroom_spritesheet_3: -1465973074
+      Restroom_spritesheet_4: -143235932
+      Restroom_spritesheet_5: 1190924711
+      Restroom_spritesheet_6: 2019091751
+      Restroom_spritesheet_7: 1073003080
+      ground_Restroom_spritesheet_9: 179104768
+      wall_Restroom_spritesheet_10: 2007924534
+      wall_Restroom_spritesheet_11: -2019999685
+      wall_Restroom_spritesheet_8: -1910589366
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
