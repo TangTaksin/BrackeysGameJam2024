@@ -35,9 +35,29 @@ public class player : creature
 
     [Header("Gunplay")]
     [SerializeField] Transform gunOrigin;
-    [SerializeField] float damage;
+    [Space]
+    [SerializeField] float damage = 2f;
     [SerializeField] float coolDown = 1f;
+    [SerializeField] int currentMagsize = 2;
+
+    int currentBullet;
+
+    [Space]
     [SerializeField] LayerMask gunMask;
+    [Space]
+    [SerializeField] Image cursorImage;
+    [SerializeField] Sprite normal;
+    [SerializeField] Sprite aimming;
+    [SerializeField] Sprite reload;
+    [Space]
+    [SerializeField] LineRenderer laserSight;
+    [SerializeField] float laserLenght;
+    [Space]
+    [SerializeField] Color shootColor;
+    [SerializeField] Color reloadColor;
+    [Space]
+
+    Color cursorColor;
 
     bool isAimming;
     float cdTimer;
@@ -54,10 +74,16 @@ public class player : creature
 
         playerRb2D = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+
         cam = Camera.main;
 
         promptImg = promptUI.GetComponentInChildren<Image>();
         promptTxt = promptUI.GetComponentInChildren<TextMeshProUGUI>();
+
+        Cursor.visible = false;
+        laserSight.enabled = false;
+
+        currentBullet = currentMagsize; // set current bullut to mag size
     }
 
     // Update is called once per frame
@@ -126,6 +152,11 @@ public class player : creature
     void ApplyVelocity()
     {
         playerRb2D.velocity = (inputVector * moveSpeed * (!animLocked).GetHashCode()) / (1 + (isAimming).GetHashCode());
+
+        if (inputVector.SqrMagnitude() > 0)
+        {
+            //AudioManager.Instance.PlaySFX(AudioManager.Instance.playerWalkSFX);
+        }
     }
 
     void InteractableCheck()
@@ -204,20 +235,30 @@ public class player : creature
             isAimming = true;
             playerAnimator.SetBool("aimming", isAimming);
             playerAnimator.Play("gun Pull Blend");
+
+            cursorImage.sprite = aimming;
+            laserSight.enabled = true;
         }
 
         if (Input.GetButtonUp("Aim"))
         {
             isAimming = false;
             playerAnimator.SetBool("aimming", isAimming);
+
+            cursorImage.sprite = normal;
+            laserSight.enabled = false;
         }
 
         if (isAimming)
         {
-            if (Input.GetButtonUp("Shoot") && cdTimer <= 0)
+            if (Input.GetButtonUp("Shoot") && cdTimer <= 0 && currentBullet > 0)
             {
                 cdTimer = coolDown;
                 playerAnimator.SetTrigger("Shot");
+
+                AddBullentCount(-1);
+
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.playerFireSFX);
 
                 var hit = Physics2D.Raycast(gunOrigin.position, (Vector2)gunOrigin.position + dirToMouse, Mathf.Infinity, gunMask);
                 //hit.collider.gameObject.TryGetComponent<creature>(out var enemy);
@@ -226,6 +267,52 @@ public class player : creature
 
         //gun cooldown
         cdTimer -= Time.deltaTime;
+        if (cdTimer <= 0)
+        {
+            cdTimer = 0;
+            if (isAimming)
+                cursorImage.sprite = aimming;
+        }
+
+        // cursor
+
+        if (cdTimer > 0 && isAimming)
+        {
+            cursorImage.sprite = reload;
+        }
+
+        cursorImage.transform.position = Input.mousePosition;
+
+        if (currentBullet <= 0)
+        {
+            cursorColor = reloadColor;
+        }
+        else
+        {
+            cursorColor = Color.Lerp(shootColor, reloadColor, cdTimer/coolDown);
+        }
+
+        cursorImage.color = cursorColor;
+
+        laserSight.SetPosition(0, gunOrigin.position);
+        laserSight.SetPosition(1, (Vector2)gunOrigin.position + dirToMouse * laserLenght);
+
+        laserSight.startColor = new Color(cursorColor.r, cursorColor.g, cursorColor.b, 1f);
+        laserSight.endColor = new Color(cursorColor.r, cursorColor.g, cursorColor.b, 0);
+
+    }
+
+    public void AddMagSize(int amount)
+    {
+        currentMagsize += amount;
+    }
+
+    public void AddBullentCount(int amount)
+    {
+        currentBullet += amount;
+
+        if (currentBullet > currentMagsize)
+            currentBullet = currentMagsize;
     }
 
 
@@ -249,7 +336,7 @@ public class player : creature
     void Debug()
     {
         if (inputStrTxt)
-            inputStrTxt.text = string.Format("Input Magnitude : {0}", inputVector.SqrMagnitude().ToString());
+            inputStrTxt.text = string.Format("Bullet : {0}", currentBullet);
     }
 
     private void OnDrawGizmos()
@@ -259,4 +346,5 @@ public class player : creature
         Gizmos.color = Color.red;
         Gizmos.DrawLine((Vector2)gunOrigin.position, (Vector2)gunOrigin.position + dirToMouse * 5);
     }
+
 }

@@ -38,12 +38,14 @@ public class Interactable : MonoBehaviour
 
     public virtual void ActiveHighlight()
     {
-        highLight?.SetActive(true);
+        if (highLight)
+            highLight?.SetActive(true);
     }
 
     public virtual void DisableHighlight()
     {
-        highLight?.SetActive(false);
+        if (highLight)
+            highLight?.SetActive(false);
     }
 
     protected virtual void OnYes()
