@@ -302,7 +302,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Restroom_spritesheet_8
+  - name: wall_Restroom_spritesheet_8
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -322,7 +322,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Restroom_spritesheet_9
+  - name: ground_Restroom_spritesheet_9
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -342,7 +342,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Restroom_spritesheet_10
+  - name: wall_Restroom_spritesheet_10
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -362,7 +362,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Restroom_spritesheet_11
+  - name: wall_Restroom_spritesheet_11
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -382,7 +382,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Restroom_spritesheet_12
+  - name: wall_Restroom_spritesheet_12
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
