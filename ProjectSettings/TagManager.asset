@@ -59,3 +59,6 @@ TagManager:
   - name: Player
     uniqueID: 3262982849
     locked: 0
+  - name: Face
+    uniqueID: 1837472771
+    locked: 0
