@@ -4,78 +4,75 @@ using UnityEngine;
 public class EnemyIsometricMovement : MonoBehaviour
 {
     public float speed = 3f;
-    public float detectionRange = 5f;
     public float attackRange = 1.5f;
+    public float movementDamping = 5f; // Adjust this value for smoother movement
     public Transform player;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
-    private bool isAttacking = false;
     private bool isDead = false;
-    private Vector2 lastKnownDirection;
 
     void Start()
+    {
+        InitializeComponents();
+        VerifyComponents();
+    }
+
+    void Update()
+    {
+        if (!isDead && player != null)
+        {
+            MoveTowardsPlayer();
+        }
+        else
+        {
+            StopChasing();
+        }
+    }
+
+    void InitializeComponents()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+    }
 
+    void VerifyComponents()
+    {
         if (spriteRenderer == null || animator == null || rb == null)
         {
             Debug.LogError("SpriteRenderer, Animator, or Rigidbody2D component not found on the enemy GameObject.");
         }
     }
 
-    void Update()
-    {
-        if (!isDead && !isAttacking && player != null)
-        {
-            CheckDetectionRange();
-        }
-        else
-        {
-            animator.SetBool("IsAttacking", false);
-            isAttacking = false;
-        }
-    }
-
-    void CheckDetectionRange()
-    {
-        if (Vector3.Distance(transform.position, player.position) < detectionRange)
-        {
-            MoveTowardsPlayer();
-        }
-        else
-        {
-            // Player is not detected, resume movement in the last known direction
-            MoveInLastKnownDirection();
-        }
-    }
-
     void MoveTowardsPlayer()
     {
         Vector3 direction = (player.position - transform.position).normalized;
-        lastKnownDirection = direction;
-
         Vector2 movement = new Vector2(direction.x, direction.y);
-        rb.velocity = movement * speed;
+
+        // Smoothly adjust the velocity using damping
+        rb.velocity = Vector2.Lerp(rb.velocity, movement * speed, Time.deltaTime * movementDamping);
 
         FlipSprite(movement.x);
 
-        if (Vector3.Distance(transform.position, player.position) < attackRange)
+        float distanceToPlayer = Vector3.Distance(player.position, transform.position);
+
+        if (distanceToPlayer <= attackRange * 2)
         {
-            StartAttackAnimation();
+            PlayAttackAnimation();
+        }
+        else
+        {
+            StopAttackAnimation();
         }
     }
 
-    void MoveInLastKnownDirection()
+    void StopChasing()
     {
-        // Move the enemy in the last known direction
-        rb.velocity = lastKnownDirection * speed;
-
-        // Flip the sprite based on the direction
-        FlipSprite(lastKnownDirection.x);
+        // Smoothly stop the monster by damping its velocity
+        rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, Time.deltaTime * movementDamping);
+        StopAttackAnimation();
     }
 
     void FlipSprite(float directionX)
@@ -83,26 +80,33 @@ public class EnemyIsometricMovement : MonoBehaviour
         spriteRenderer.flipX = directionX <= 0;
     }
 
-    void StartAttackAnimation()
+    void PlayAttackAnimation()
     {
+        Debug.Log("Attacking Animation Playing");
         animator.SetBool("IsAttacking", true);
-        isAttacking = true;
+    }
+
+    void StopAttackAnimation()
+    {
+        animator.SetBool("IsAttacking", false);
     }
 
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
+        DrawGizmo(Color.red, attackRange);
+    }
 
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+    void DrawGizmo(Color color, float range)
+    {
+        Gizmos.color = color;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 
     public void Die()
     {
         isDead = true;
         animator.SetTrigger("IsDead");
-        rb.velocity = Vector2.zero; // Stop movement on death
+        rb.velocity = Vector2.zero;
         Destroy(gameObject, 1);
         // Additional death-related logic can be added here
     }
