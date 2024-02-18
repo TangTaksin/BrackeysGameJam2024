@@ -64,13 +64,14 @@ public class door : Interactable
                 PlayPeekSound();
 
                 // start door peeking animation
-                OnPeeked?.Invoke(this);
 
                 doorSpriteAnimator.SetTrigger("peek");
                 shadowAnimator.SetTrigger("peek");
 
                 isPeeked = true;
             }
+
+            OnPeeked?.Invoke(this);
 
             // base.Interact() show "enter or not" prompt
             base.Interact();
@@ -123,9 +124,7 @@ public class door : Interactable
     // Enter next room if yes
     protected override void OnYes()
     {
-        //teleport to B
-        playerObj.transform.position = positionB.transform.position;
-        //SceneManager.LoadScene(connectedSceneName);
+        SceneManager.LoadScene(connectedSceneName);
 
         GameManager.RequestResume();
         doorSpriteAnimator.SetTrigger("enter");
@@ -140,6 +139,8 @@ public class door : Interactable
     // don't, if no
     protected override void OnNo()
     {
+        OnMoveaway?.Invoke(this);
+
         playerObj.HidePlayerVisual(false);
         positionA.SetActive(false);
 

@@ -9,6 +9,8 @@ public class Room : MonoBehaviour
     [SerializeField] bool hideOnAwake;
 
     [SerializeField] DoorGroup doors;
+    [SerializeField] SpriteRenderer connectedWall;
+    [SerializeField] float connectedWallFadeAmount = .5f;
 
     bool beingPeek;
 
@@ -27,5 +29,18 @@ public class Room : MonoBehaviour
     {
         beingPeek = value;
         gameObject.SetActive(beingPeek);
+        FadeConnectedWall(beingPeek);
+    }
+
+    void FadeConnectedWall(bool value)
+    {
+        if (value)
+        {
+            connectedWall.color = new Color(1, 1, 1, connectedWallFadeAmount);
+        }
+        else
+        {
+            connectedWall.color = new Color(1, 1, 1, 1);
+        }
     }
 }
