@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1a545c7ce670b364c969527c6b2b0625
+guid: fad43a3d32e60c1488c92fec8bbe18ca
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,11 +48,11 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Menu_Door_0
+      name: Superman_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 63
-        height: 74
+        width: 256
+        height: 176
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: beed103acd976b94e9ef99443a37c52a
-      internalID: -2003948458
+      spriteID: d6d63b6cda2ac1148b556ab0daa69e7a
+      internalID: -913201583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Menu_Door_1
+      name: Superman_1
       rect:
         serializedVersion: 2
-        x: 63
+        x: 256
         y: 0
-        width: 63
-        height: 74
+        width: 256
+        height: 176
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +158,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 780167318ff81e24888eed529f24f039
-      internalID: -1051218310
+      spriteID: 02b381f4e6537c14e974f7c2aed17f68
+      internalID: -1975181534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Superman_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 684d743d78cda2c4196ee653630f4875
+      internalID: -1826219934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Superman_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0fd465f84c24f344a44a76280d6d219
+      internalID: -187231000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Superman_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60dd0f084e295d241ac361193498c3ca
+      internalID: 1103117028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Superman_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52066101c94933d4396a39cb4826adef
+      internalID: 825493190
       vertices: []
       indices: 
       edges: []
@@ -167,7 +251,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 71405240b6813644fa96d19979dc7a43
+    spriteID: f466028b1255cbb4299c9d3f59a13cc1
     internalID: 0
     vertices: []
     indices: 
@@ -175,8 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Menu_Door_0: -2003948458
-      Menu_Door_1: -1051218310
+      Superman_0: -913201583
+      Superman_1: -1975181534
+      Superman_2: -1826219934
+      Superman_3: -187231000
+      Superman_4: 1103117028
+      Superman_5: 825493190
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
