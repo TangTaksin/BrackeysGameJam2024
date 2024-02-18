@@ -241,6 +241,7 @@ MonoBehaviour:
   shootColor: {r: 0.31764707, g: 0.41960788, b: 0.2627451, a: 1}
   reloadColor: {r: 0.48627454, g: 0.27058825, b: 0.27058825, a: 1}
   inputStrTxt: {fileID: 0}
+  fadeScreen: {fileID: 0}
 --- !u!50 &3754164653627538880
 Rigidbody2D:
   serializedVersion: 4

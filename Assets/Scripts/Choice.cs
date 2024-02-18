@@ -34,6 +34,7 @@ public class Choice : MonoBehaviour
         }
 
         choiceObj.SetActive(false);
+
     }
 
     public void CallChoice(string question)

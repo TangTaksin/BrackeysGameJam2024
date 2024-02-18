@@ -20,7 +20,7 @@ public class player : creature
     bool animLocked;
 
     [Header("direction strenght")]
-    [SerializeField][Range(0,1)] float xStr = 1f;
+    [SerializeField][Range(0, 1)] float xStr = 1f;
     [SerializeField][Range(0, 1)] float yStr = 1f;
 
     [Header("Interaction")]
@@ -66,13 +66,13 @@ public class player : creature
     [Header("debug text")]
     [SerializeField] TextMeshProUGUI inputStrTxt;
 
-    [SerializeField] private FadeScreen fadeScreen;
-    
+    // [SerializeField] private FadeScreen fadeScreen;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        fadeScreen.GetComponent<FadeScreen>();
+        // fadeScreen.GetComponent<FadeScreen>();
         GameManager.OnPauseEvent += OnPause;
         GameManager.OnResumeEvent += OnResume;
 
@@ -124,7 +124,7 @@ public class player : creature
     }
 
     void GetMouseInput()
-    { 
+    {
         // Mouse Position
         var mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         if (!animLocked)
@@ -145,7 +145,7 @@ public class player : creature
         playerAnimator.SetFloat("x", lateInput.x);
         playerAnimator.SetFloat("y", lateInput.y);
         playerAnimator.SetFloat("inputMagnitude", (int)inputVector.SqrMagnitude());
-        
+
         animLocked = playerAnimator.GetBool("AnimLock");
 
         if (!animLocked)
@@ -311,7 +311,7 @@ public class player : creature
         }
         else
         {
-            cursorColor = Color.Lerp(shootColor, reloadColor, cdTimer/coolDown);
+            cursorColor = Color.Lerp(shootColor, reloadColor, cdTimer / coolDown);
         }
 
         cursorImage.color = cursorColor;
@@ -343,23 +343,30 @@ public class player : creature
     void OnPause()
     {
         isPause = true;
+        if (playerRb2D != null)
+        {
+            storedVelo = playerRb2D.velocity; // store
+            playerRb2D.velocity = Vector2.zero;
 
-        storedVelo = playerRb2D.velocity; // store
-        playerRb2D.velocity = Vector2.zero;
+        }
+
+
     }
 
     void OnResume()
     {
         isPause = false;
+
         playerRb2D.velocity = storedVelo;
+
     }
 
     public override void OnHealthZero()
     {
         playerAnimator.Play("player_ded");
         GameManager.RequestPause();
-        fadeScreen.GameOver();
-        
+        // fadeScreen.GameOver();
+
     }
 
 
