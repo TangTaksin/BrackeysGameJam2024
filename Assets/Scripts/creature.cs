@@ -27,12 +27,16 @@ public class creature : MonoBehaviour
     // health can be subtract (or heal).
     public void DamageHealth(int amount)
     {
+        if (amount > 0)
+            OnHurt();
+
         health_cur -= amount;
 
         // if health less than 0
         if (health_cur <= 0)
         {
             health_cur = 0;
+            OnHealthZero();
             // ur ded lmao.
         }
         
@@ -43,4 +47,13 @@ public class creature : MonoBehaviour
         }
     }
 
+    public virtual void OnHurt()
+    {
+
+    }
+
+    public virtual void OnHealthZero()
+    {
+
+    }
 }

@@ -1,37 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class door : Interactable
 {
+    [Header("Next Scene")]
+    [SerializeField] string connectedSceneName;
+
     bool isPeeked;
-    [Header("Lock")]
+
+    [Header("Lock Option")]
     [SerializeField] bool isLocked;
 
     SpriteRenderer doorRenderer;
-
+    Animator doorSpriteAnimator;
+    
     AudioSource audioSource;
 
     [Header("Audio")]
     [SerializeField] AudioClip peekAudio;
     [SerializeField] AudioClip openAudio, closeAudio, stuckAudio;
 
-    [Header("Player Position")]
+    [Header("Visual")]
     [SerializeField] GameObject positionA;
     [SerializeField] GameObject positionB;
+    [SerializeField] Animator shadowAnimator;
 
     player playerObj; //ref
 
-    public delegate void doorEvent();
-    public static doorEvent OnPeeked;
-    public static doorEvent OnMoveaway;
+    public delegate void doorEvent(door doorData);
+    public doorEvent OnPeeked;
+    public doorEvent OnMoveaway;
+    public static doorEvent OnEnter;
 
     private void Start()
     {
         doorRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+        doorSpriteAnimator = GetComponent<Animator>();
 
         playerObj = FindAnyObjectByType<player>();
+        positionA.SetActive(false);
     }
 
     public void SetIsPeeked(bool val)
@@ -54,14 +64,21 @@ public class door : Interactable
                 PlayPeekSound();
 
                 // start door peeking animation
-                OnPeeked?.Invoke();
+                OnPeeked?.Invoke(this);
+
+                doorSpriteAnimator.SetTrigger("peek");
+                shadowAnimator.SetTrigger("peek");
+
                 isPeeked = true;
             }
 
             // base.Interact() show "enter or not" prompt
             base.Interact();
 
-            //teleport player to A
+            //teleport player to A, and hide player visual 
+            playerObj.HidePlayerVisual(true);
+            positionA.SetActive(true);
+
             playerObj.transform.position = positionA.transform.position;
         }
         else
@@ -81,7 +98,6 @@ public class door : Interactable
             doorRenderer.color = Color.clear;
         }
     }
-
 
     public void PlayPeekSound()
     {
@@ -109,13 +125,25 @@ public class door : Interactable
     {
         //teleport to B
         playerObj.transform.position = positionB.transform.position;
+        //SceneManager.LoadScene(connectedSceneName);
+
         GameManager.RequestResume();
+        doorSpriteAnimator.SetTrigger("enter");
+        shadowAnimator.SetTrigger("enter");
+
+        playerObj.HidePlayerVisual(false);
+        positionA.SetActive(false);
+
         isLocked = true;
     }
 
     // don't, if no
     protected override void OnNo()
     {
+        playerObj.HidePlayerVisual(false);
+        positionA.SetActive(false);
+
         GameManager.RequestResume();
     }
+
 }

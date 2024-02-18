@@ -380,15 +380,16 @@ MonoBehaviour:
     type: 3}
   pickMagSFX: {fileID: 8300000, guid: dd3276b97a91ab848b969832630d69ca, type: 3}
   playerWalkSFX: {fileID: 0}
-  playerFireSFX: {fileID: 0}
+  playerFireSFX: {fileID: 8300000, guid: b8a3703ae0919254787f5310acbfa7de, type: 3}
   door_open_wood_sfx: {fileID: 8300000, guid: 68182cd1975bab54a9ca27a69a036064, type: 3}
   door_close_wood_sfx: {fileID: 8300000, guid: 6071805b5cb03fd49826fee185ea17ef, type: 3}
   door_open_metal_sfx: {fileID: 8300000, guid: 1610869fedbbbb347a0ec1cbd011a164, type: 3}
   door_close_metal_sfx: {fileID: 8300000, guid: 0c03329116275a548947c4665297c066,
     type: 3}
   door_stuck_sfx: {fileID: 8300000, guid: 8c4e8b902c7ce9341bbeb9023eec6100, type: 3}
-  mon_dead_SFX: {fileID: 0}
-  mon_walk_SFX: {fileID: 0}
+  mon_attack_SFX: {fileID: 8300000, guid: 45b59c5042cdd864e96ec5f5c640ec49, type: 3}
+  mon_dead_SFX: {fileID: 8300000, guid: 0aed41212e894934789e148eca67c2d1, type: 3}
+  mon_walk_SFX: {fileID: 8300000, guid: fcc137192f02e074582526ade9de5699, type: 3}
 --- !u!1 &2175599344238422382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,7 +1118,7 @@ AudioSource:
   m_GameObject: {fileID: 3289865240219098815}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -8193710245632768343, guid: f54293001ef1bac478c1bac101f2df21,
+  OutputAudioMixerGroup: {fileID: -8193710245632768343, guid: 1f379e1c67ee60343a0538b415382afa,
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
@@ -1379,7 +1380,7 @@ AudioSource:
   m_GameObject: {fileID: 4062327542750265740}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -8605800606768276202, guid: f54293001ef1bac478c1bac101f2df21,
+  OutputAudioMixerGroup: {fileID: -8605800606768276202, guid: 1f379e1c67ee60343a0538b415382afa,
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1

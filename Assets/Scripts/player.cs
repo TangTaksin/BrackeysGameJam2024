@@ -8,6 +8,7 @@ public class player : creature
 {
     Rigidbody2D playerRb2D;
     Animator playerAnimator;
+    SpriteRenderer spriteRenderer;
     Camera cam;
 
     Vector2 inputVector;
@@ -36,7 +37,7 @@ public class player : creature
     [Header("Gunplay")]
     [SerializeField] Transform gunOrigin;
     [Space]
-    [SerializeField] float damage = 2f;
+    [SerializeField] int damage = 2;
     [SerializeField] float coolDown = 1f;
     [SerializeField] int currentMagsize = 2;
 
@@ -74,6 +75,7 @@ public class player : creature
 
         playerRb2D = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         cam = Camera.main;
 
@@ -89,6 +91,8 @@ public class player : creature
     // Update is called once per frame
     void Update()
     {
+        GetMouseInput();
+
         if (!isPause)
         {
             GetInput();
@@ -100,7 +104,7 @@ public class player : creature
 
             Gunplay();
 
-            Debug();
+            DebugLog();
         }
 
         UpdateAnimator();
@@ -114,7 +118,10 @@ public class player : creature
 
         inputVector = new Vector2(x * xStr, y * yStr);
         inputVector.Normalize();
+    }
 
+    void GetMouseInput()
+    { 
         // Mouse Position
         var mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         if (!animLocked)
@@ -122,7 +129,10 @@ public class player : creature
             dirToMouse = mousePos - gunOrigin.position;
             dirToMouse.Normalize();
         }
+
+        cursorImage.transform.position = Input.mousePosition;
     }
+
 
     void UpdateAnimator()
     {
@@ -140,14 +150,18 @@ public class player : creature
             playerAnimator.SetFloat("aimX", dirToMouse.x);
             playerAnimator.SetFloat("aimY", dirToMouse.y);
         }
-
-        
     }
 
     public void SetAnimationState(string stateName)
     {
         playerAnimator.Play(stateName);
     }
+
+    public void HidePlayerVisual(bool value)
+    {
+        spriteRenderer.enabled = !value;
+    }
+
 
     void ApplyVelocity()
     {
@@ -172,18 +186,20 @@ public class player : creature
                 var cast = Physics2D.Raycast(transform.position, collider.transform.position - transform.position, Mathf.Infinity, interactionLayer);
 
                 // if ray able to reach, add it to the list if it's not on it.
-                if (cast && !interactList.Contains(collider))
+                if (cast && !interactList.Contains(collider) && collider.gameObject.activeSelf)
                 {
                     interactList.Add(collider);
                 }
             }
 
             var closestDistance = Mathf.Infinity;
+            Interactable compare;
 
             //after that find highlight the closest one on the list
             foreach (var collider in interactList)
             {
-                var newdistance = Vector3.Distance(transform.position, collider.transform.position);
+                compare = collider?.gameObject.GetComponent<Interactable>();
+                var newdistance = Vector3.Distance(gunOrigin.position, compare.GiveHighlightObject().transform.position);
 
                 if (newdistance < closestDistance)
                 {
@@ -208,7 +224,7 @@ public class player : creature
         if (currentInteractable && promptUI)
         {
             //move prompt to the interactable
-            var newposition = cam.WorldToScreenPoint(currentInteractable.transform.position);
+            var newposition = cam.WorldToScreenPoint(currentInteractable.GiveHighlightObject().transform.position);
             promptUI.position = newposition;
 
             //update prompt info
@@ -260,8 +276,13 @@ public class player : creature
 
                 AudioManager.Instance.PlaySFX(AudioManager.Instance.playerFireSFX);
 
-                var hit = Physics2D.Raycast(gunOrigin.position, (Vector2)gunOrigin.position + dirToMouse, Mathf.Infinity, gunMask);
-                //hit.collider.gameObject.TryGetComponent<creature>(out var enemy);
+                var hit = Physics2D.Raycast(gunOrigin.position, dirToMouse, Mathf.Infinity, gunMask);
+
+                if (hit)
+                {
+                    hit.collider.GetComponent<creature>().DamageHealth(damage);
+                }
+
             }
         }
 
@@ -280,8 +301,6 @@ public class player : creature
         {
             cursorImage.sprite = reload;
         }
-
-        cursorImage.transform.position = Input.mousePosition;
 
         if (currentBullet <= 0)
         {
@@ -332,8 +351,15 @@ public class player : creature
         playerRb2D.velocity = storedVelo;
     }
 
+    public override void OnHealthZero()
+    {
+        playerAnimator.Play("player_ded");
+        GameManager.RequestPause();
+        
+    }
 
-    void Debug()
+
+    void DebugLog()
     {
         if (inputStrTxt)
             inputStrTxt.text = string.Format("Bullet : {0}", currentBullet);
@@ -344,7 +370,7 @@ public class player : creature
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, interactCheckRadius);
         Gizmos.color = Color.red;
-        Gizmos.DrawLine((Vector2)gunOrigin.position, (Vector2)gunOrigin.position + dirToMouse * 5);
+        Gizmos.DrawLine(gunOrigin.position, gunOrigin.position + (Vector3)dirToMouse * 5);
     }
 
 }

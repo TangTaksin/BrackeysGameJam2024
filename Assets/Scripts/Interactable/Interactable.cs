@@ -31,6 +31,11 @@ public class Interactable : MonoBehaviour
         }
     }
 
+    public GameObject GiveHighlightObject()
+    {
+        return highLight;
+    }
+
     public (Sprite, string) GiveInfo()
     {
         return (promptImage, promptInfo);

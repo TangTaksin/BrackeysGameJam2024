@@ -26,6 +26,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip door_stuck_sfx;
 
     [Header("===================Monster SFX Clips===================")]
+    public AudioClip mon_attack_SFX;
     public AudioClip mon_dead_SFX;
     public AudioClip mon_walk_SFX;
 
