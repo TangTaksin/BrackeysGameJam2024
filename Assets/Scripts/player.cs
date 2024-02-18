@@ -65,11 +65,14 @@ public class player : creature
 
     [Header("debug text")]
     [SerializeField] TextMeshProUGUI inputStrTxt;
+
+    [SerializeField] private FadeScreen fadeScreen;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        fadeScreen.GetComponent<FadeScreen>();
         GameManager.OnPauseEvent += OnPause;
         GameManager.OnResumeEvent += OnResume;
 
@@ -355,6 +358,7 @@ public class player : creature
     {
         playerAnimator.Play("player_ded");
         GameManager.RequestPause();
+        fadeScreen.GameOver();
         
     }
 
