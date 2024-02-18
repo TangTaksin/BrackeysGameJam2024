@@ -47,6 +47,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: PropBeHindWall
+    uniqueID: 506337987
+    locked: 0
   - name: Wall
     uniqueID: 1321066163
     locked: 0
@@ -55,4 +58,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3262982849
+    locked: 0
+  - name: Face
+    uniqueID: 1837472771
     locked: 0
