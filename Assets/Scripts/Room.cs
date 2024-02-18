@@ -34,13 +34,17 @@ public class Room : MonoBehaviour
 
     void FadeConnectedWall(bool value)
     {
-        if (value)
+
+        if (connectedWall)
         {
-            connectedWall.color = new Color(1, 1, 1, connectedWallFadeAmount);
-        }
-        else
-        {
-            connectedWall.color = new Color(1, 1, 1, 1);
+            if (value)
+            {
+                connectedWall.color = new Color(1, 1, 1, connectedWallFadeAmount);
+            }
+            else
+            {
+                connectedWall.color = new Color(1, 1, 1, 1);
+            }
         }
     }
 }
