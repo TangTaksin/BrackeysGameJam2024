@@ -18,7 +18,7 @@ public class MagazineUpgrade : Interactable
         player.AddMagSize(UpgradeAmount);
         player.AddBullentCount(UpgradeAmount);
 
-        AudioManager.Instance.PlaySFX(AudioManager.Instance.pickMagSFX);
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.pickMagSFX);
 
         gameObject.SetActive(false);
         base.Interact();

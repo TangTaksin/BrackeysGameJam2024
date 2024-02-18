@@ -375,7 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 490354744753705086}
   sfxSource: {fileID: 2228366053963568538}
-  BGMusic: {fileID: 8300000, guid: 62c1a09702210104b82a2d95dae737b0, type: 3}
+  BGMusic: {fileID: 8300000, guid: 63b3d30549e7630448eaa20b87a7f338, type: 3}
   player_pick_ammo_SFX: {fileID: 8300000, guid: a9ae0a4242233234ab758e3668e139af,
     type: 3}
   pickMagSFX: {fileID: 8300000, guid: dd3276b97a91ab848b969832630d69ca, type: 3}

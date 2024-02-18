@@ -274,7 +274,7 @@ public class player : creature
 
                 AddBullentCount(-1);
 
-                AudioManager.Instance.PlaySFX(AudioManager.Instance.playerFireSFX);
+                AudioManager.Instance?.PlaySFX(AudioManager.Instance.playerFireSFX);
 
                 var hit = Physics2D.Raycast(gunOrigin.position, dirToMouse, Mathf.Infinity, gunMask);
 
