@@ -66,13 +66,13 @@ public class player : creature
     [Header("debug text")]
     [SerializeField] TextMeshProUGUI inputStrTxt;
 
-    // [SerializeField] private FadeScreen fadeScreen;
+    [SerializeField] private FadeScreen fadeScreen;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        // fadeScreen.GetComponent<FadeScreen>();
+        fadeScreen.GetComponent<FadeScreen>();
         GameManager.OnPauseEvent += OnPause;
         GameManager.OnResumeEvent += OnResume;
 
@@ -357,7 +357,10 @@ public class player : creature
     {
         isPause = false;
 
-        playerRb2D.velocity = storedVelo;
+        if (playerRb2D != null)
+        {
+            playerRb2D.velocity = storedVelo;
+        }
 
     }
 
@@ -365,7 +368,7 @@ public class player : creature
     {
         playerAnimator.Play("player_ded");
         GameManager.RequestPause();
-        // fadeScreen.GameOver();
+        fadeScreen.GameOver();
 
     }
 

@@ -181,7 +181,7 @@ public class EnemyIsometricMovement : creature
     {
         isDead = true;
         animator.SetTrigger("IsDead");
-        AudioManager.Instance?.PlaySFX(AudioManager.Instance.mon_dead_SFX);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.mon_dead_SFX);
         rb.velocity = Vector2.zero;
         Destroy(gameObject, 1);
         // Additional death-related logic can be added here

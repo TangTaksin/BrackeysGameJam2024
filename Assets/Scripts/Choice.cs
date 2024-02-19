@@ -43,6 +43,7 @@ public class Choice : MonoBehaviour
         GameManager.RequestPause();
         choiceQuestionTxt.text = question;
         choiceObj.SetActive(true);
+        Debug.Log("Choice activated: " + question);
     }
 
     public void PutChoiceAway()
@@ -52,12 +53,10 @@ public class Choice : MonoBehaviour
 
     private void Update()
     {
-
-
-        //Wait for input if Choice is active
-        if (choiceObj.activeSelf)
+        // Wait for input if Choice is active
+        if (choiceObj != null && choiceObj.activeSelf)
         {
-            //position
+            // position
             var tar = cam.WorldToScreenPoint(player.transform.position);
             choiceObj.transform.position = Vector3.Lerp(choiceObj.transform.position, tar, .1f);
 
@@ -72,6 +71,12 @@ public class Choice : MonoBehaviour
                 PutChoiceAway();
             }
         }
+    }
 
+    private void OnDestroy()
+    {
+        CallChoiceEvent -= CallChoice;
+        yesEvent = null;
+        noEvent = null;
     }
 }
