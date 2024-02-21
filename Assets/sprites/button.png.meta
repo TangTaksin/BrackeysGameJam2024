@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5bf13d5257b01134f852a6c72d289b03
+guid: 6277f85f1c73ca743bc1074e8dfc4404
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25.5
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,106 +123,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: death-0008-Sheet_0
+      name: button_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0625}
+        x: 143
+        y: 82
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6651aa9c49543b479045ca02153abf8
-      internalID: -138164478
+      spriteID: 507312ec3c73fee45b192e5bac2ffc52
+      internalID: 782348969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death-0008-Sheet_1
+      name: button_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0625}
+        x: 399
+        y: 82
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fadd5b109214d7498ba5b8f6a1e6af1
-      internalID: 208287307
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death-0008-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0625}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ece0ab81f2cd574a805ff1745867f4d
-      internalID: -1303624836
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death-0008-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0625}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9531210b24efc114195c53c0eaa129d3
-      internalID: 1547219116
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death-0008-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.0625}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4339e91824de6e84b80ef14dc09277d2
-      internalID: -2086547859
+      spriteID: 4015a2feae299c74b92829a30ce8618d
+      internalID: -1884991623
       vertices: []
       indices: 
       edges: []
@@ -238,11 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      death-0008-Sheet_0: -138164478
-      death-0008-Sheet_1: 208287307
-      death-0008-Sheet_2: -1303624836
-      death-0008-Sheet_3: 1547219116
-      death-0008-Sheet_4: -2086547859
+      button_0: 782348969
+      button_1: -1884991623
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -186,4 +186,10 @@ public class EnemyIsometricMovement : creature
         Destroy(gameObject, 1);
         // Additional death-related logic can be added here
     }
+
+    private void OnDestroy()
+    {
+        GameManager.OnPauseEvent -= OnPause;
+        GameManager.OnResumeEvent -= OnResume;
+    }
 }

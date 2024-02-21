@@ -218,6 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health_max: 1
   moveSpeed: 2
+  statsTracker: {fileID: 11400000, guid: e03b75117410dd1478b44d892ebf6a22, type: 2}
   xStr: 1
   yStr: 0.5
   interactCheckRadius: 1

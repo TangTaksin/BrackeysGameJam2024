@@ -23,24 +23,27 @@ public class Choice : MonoBehaviour
 
     private void Start()
     {
+        CallChoiceEvent += CallChoice;
+        choiceObj.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        player = null;
         player = FindAnyObjectByType<player>();
         cam = Camera.main;
-
-        CallChoiceEvent += CallChoice;
 
         if (!choiceObj)
         {
             choiceObj = gameObject;
         }
-
-        choiceObj.SetActive(false);
-
     }
 
     public void CallChoice(string question)
     {
         //GameObject
         GameManager.RequestPause();
+
         choiceQuestionTxt.text = question;
         choiceObj.SetActive(true);
         Debug.Log("Choice activated: " + question);
@@ -76,7 +79,5 @@ public class Choice : MonoBehaviour
     private void OnDestroy()
     {
         CallChoiceEvent -= CallChoice;
-        yesEvent = null;
-        noEvent = null;
     }
 }

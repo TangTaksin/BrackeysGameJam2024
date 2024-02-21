@@ -19,6 +19,8 @@ public class player : creature
     bool isPause;
     bool animLocked;
 
+    [SerializeField] PlayerInvSO statsTracker;
+
     [Header("direction strenght")]
     [SerializeField][Range(0, 1)] float xStr = 1f;
     [SerializeField][Range(0, 1)] float yStr = 1f;
@@ -70,7 +72,7 @@ public class player : creature
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         fadeScreen.GetComponent<FadeScreen>();
         GameManager.OnPauseEvent += OnPause;
@@ -80,6 +82,10 @@ public class player : creature
         playerAnimator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
+        cursorImage = GameObject.Find("cursor")?.GetComponent<Image>();
+        promptUI = GameObject.Find("Interact Prompt")?.GetComponent<RectTransform>();
+        inputStrTxt = GameObject.Find("Input Strenght Text")?.GetComponent<TextMeshProUGUI>();
+
         cam = Camera.main;
 
         promptImg = promptUI.GetComponentInChildren<Image>();
@@ -88,7 +94,7 @@ public class player : creature
         Cursor.visible = false;
         laserSight.enabled = false;
 
-        currentBullet = currentMagsize; // set current bullut to mag size
+        ReadStatData();
     }
 
     // Update is called once per frame
@@ -179,6 +185,8 @@ public class player : creature
     void InteractableCheck()
     {
         var colliders = Physics2D.OverlapCircleAll(transform.position, interactCheckRadius, interactionLayer);
+
+        interactList.Clear();
 
         // if detect any interactables
         if (colliders.Length > 0)
@@ -343,14 +351,11 @@ public class player : creature
     void OnPause()
     {
         isPause = true;
-        if (playerRb2D != null)
+        if (playerRb2D)
         {
             storedVelo = playerRb2D.velocity; // store
             playerRb2D.velocity = Vector2.zero;
-
         }
-
-
     }
 
     void OnResume()
@@ -370,6 +375,8 @@ public class player : creature
         GameManager.RequestPause();
         fadeScreen.GameOver();
 
+        statsTracker.bullet = 2;
+        statsTracker.magazine = 2;
     }
 
 
@@ -387,4 +394,25 @@ public class player : creature
         Gizmos.DrawLine(gunOrigin.position, gunOrigin.position + (Vector3)dirToMouse * 5);
     }
 
+    private void OnDestroy()
+    {
+        SaveStatData();
+
+        GameManager.OnPauseEvent -= OnPause;
+        GameManager.OnResumeEvent -= OnResume;
+    }
+
+
+    //Scriptable
+    void ReadStatData()
+    {
+        currentBullet = statsTracker.bullet;
+        currentMagsize = statsTracker.magazine;
+    }
+
+    void SaveStatData()
+    {
+        statsTracker.bullet = currentBullet;
+        statsTracker.magazine = currentMagsize;
+    }
 }

@@ -124,6 +124,8 @@ public class door : Interactable
     // Enter next room if yes
     protected override void OnYes()
     {
+        base.OnYes();
+
         SceneManager.LoadScene(connectedSceneName);
 
         GameManager.RequestResume();
@@ -139,6 +141,8 @@ public class door : Interactable
     // don't, if no
     protected override void OnNo()
     {
+        base.OnNo();
+
         OnMoveaway?.Invoke(this);
 
         playerObj.HidePlayerVisual(false);
