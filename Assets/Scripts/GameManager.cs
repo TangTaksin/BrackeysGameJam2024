@@ -22,4 +22,9 @@ public class GameManager : MonoBehaviour
     {
         OnResumeEvent?.Invoke();
     }
+
+    private void OnDestroy()
+    {
+        
+    }
 }

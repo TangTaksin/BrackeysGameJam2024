@@ -43,7 +43,7 @@ public class FadeScreen : MonoBehaviour
             fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, alpha);
             yield return null;
         }
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Room0");
     }
 
     IEnumerator FadeInAndMainMenu()

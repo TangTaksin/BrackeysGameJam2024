@@ -11,6 +11,9 @@ public class Choice : MonoBehaviour
     [Header("Required to be set")]
     [SerializeField] TextMeshProUGUI choiceQuestionTxt;
 
+    player player;
+    Camera cam;
+
     public delegate void CallEvent(string question);
     public static CallEvent CallChoiceEvent;
 
@@ -21,21 +24,29 @@ public class Choice : MonoBehaviour
     private void Start()
     {
         CallChoiceEvent += CallChoice;
+        choiceObj.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        player = null;
+        player = FindAnyObjectByType<player>();
+        cam = Camera.main;
 
         if (!choiceObj)
         {
             choiceObj = gameObject;
         }
-
-        choiceObj.SetActive(false);
     }
 
     public void CallChoice(string question)
     {
         //GameObject
         GameManager.RequestPause();
+
         choiceQuestionTxt.text = question;
         choiceObj.SetActive(true);
+        Debug.Log("Choice activated: " + question);
     }
 
     public void PutChoiceAway()
@@ -45,9 +56,13 @@ public class Choice : MonoBehaviour
 
     private void Update()
     {
-        //Wait for input if Choice is active
-        if (choiceObj.activeSelf)
+        // Wait for input if Choice is active
+        if (choiceObj != null && choiceObj.activeSelf)
         {
+            // position
+            var tar = cam.WorldToScreenPoint(player.transform.position);
+            choiceObj.transform.position = Vector3.Lerp(choiceObj.transform.position, tar, .1f);
+
             if (Input.GetButtonDown("Confirm"))
             {
                 yesEvent?.Invoke();
@@ -59,6 +74,10 @@ public class Choice : MonoBehaviour
                 PutChoiceAway();
             }
         }
+    }
 
+    private void OnDestroy()
+    {
+        CallChoiceEvent -= CallChoice;
     }
 }

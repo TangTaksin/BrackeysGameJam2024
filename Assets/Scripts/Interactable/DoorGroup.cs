@@ -8,14 +8,17 @@ public class DoorGroup : MonoBehaviour
     [SerializeField] bool canPeekManyDoor;
 
     bool isBeingPeek;
+
+    public delegate void DoorGroupDelegate(bool value);
+    public DoorGroupDelegate onPeekEvent;
     
     private void Start()
     {
         //add listener to each doors
-        foreach (var door in doors)
+        foreach (var d in doors)
         {
-            door.OnPeeked += OnPeek;
-            door.OnMoveaway += OnMoveaway;
+            d.OnPeeked += OnPeek;
+            d.OnMoveaway += OnMoveaway;
         }
     }
 
@@ -32,21 +35,25 @@ public class DoorGroup : MonoBehaviour
         }
     }
 
-    void OnPeek()
+
+    void OnPeek(door doorData)
     {
         if (!canPeekManyDoor)
         {
             foreach (var door in doors)
             {
-                door.SetIsPeeked(true);
+                if (door != doorData)
+                    door.SetIsLocked(true);
             }
         }
 
         isBeingPeek = true;
+        onPeekEvent?.Invoke(isBeingPeek);
     }
 
-    void OnMoveaway()
+    void OnMoveaway(door doorData)
     {
         isBeingPeek = false;
+        onPeekEvent?.Invoke(isBeingPeek);
     }
 }
