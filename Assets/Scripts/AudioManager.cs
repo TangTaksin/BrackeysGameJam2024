@@ -1,38 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [Header("===================Audio Source===================")]
+    [Header("Audio Sources")]
     [SerializeField] private AudioSource musicSource;
-    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioSource sfxSourcePrefab; // Prefab for SFX AudioSource
 
-    [Header("===================Music Clips===================")]
+    [Header("Music Clips")]
     public AudioClip BGMusic;
-    
 
-    [Header("===================Player SFX Clips===================")]
+    [Header("Player SFX Clips")]
     public AudioClip player_pick_ammo_SFX;
     public AudioClip pickMagSFX;
     public AudioClip playerWalkSFX;
     public AudioClip playerFireSFX;
 
-    [Header("===================Player SFX Clips===================")]
+    [Header("Door SFX Clips")]
     public AudioClip door_open_wood_sfx;
     public AudioClip door_close_wood_sfx;
     public AudioClip door_open_metal_sfx;
     public AudioClip door_close_metal_sfx;
     public AudioClip door_stuck_sfx;
 
-    [Header("===================Monster SFX Clips===================")]
+    [Header("Monster SFX Clips")]
     public AudioClip mon_attack_SFX;
     public AudioClip mon_dead_SFX;
     public AudioClip mon_walk_SFX;
 
-
-
     public static AudioManager Instance;
+
     private void Awake()
     {
         if (Instance == null)
@@ -46,18 +42,16 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-
     private void Start()
     {
-        if (musicSource != null)
+        if (musicSource != null && BGMusic != null)
         {
             PlayMusic(BGMusic);
         }
         else
         {
-            Debug.LogError("musicSource is null");
+            Debug.LogError("musicSource or BGMusic is null");
         }
-
     }
 
     public void PlayMusic(AudioClip musicClip)
@@ -67,7 +61,6 @@ public class AudioManager : MonoBehaviour
             musicSource.clip = musicClip;
             musicSource.Play();
         }
-
     }
 
     public void StopMusic()
@@ -77,7 +70,15 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(AudioClip SFXClip)
     {
-        sfxSource.PlayOneShot(SFXClip);
+        if (SFXClip != null)
+        {
+            // Instantiate a new AudioSource for the SFX
+            AudioSource sfxSource = Instantiate(sfxSourcePrefab, transform.position, Quaternion.identity);
+            sfxSource.PlayOneShot(SFXClip);
+        }
+        else
+        {
+            Debug.LogWarning("Trying to play null SFXClip");
+        }
     }
-
 }
